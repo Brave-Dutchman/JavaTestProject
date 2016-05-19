@@ -14,20 +14,20 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Created by Thijs Reeringh on 5/10/2016.
+ * The dao for the Members Group table.
  */
 @Transactional
 @Repository
-public class MembersGroupImpl implements MembersGroupDao {
+public class MembersGroupDaoImpl implements MembersGroupDao {
     @Autowired
     private SessionFactory sessionFactory;
 
     @Override
+    @SuppressWarnings (value="unchecked")
     public List<MembersGroup> get() {
         Session session = sessionFactory.getCurrentSession();
         Criteria criteria = session.createCriteria(MembersGroup.class);
-        List<MembersGroup> membersGroups = (List<MembersGroup>) criteria.list();
-        return membersGroups;
+        return (List<MembersGroup>) criteria.list();
     }
 
     @Override

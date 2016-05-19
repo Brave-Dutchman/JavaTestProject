@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * Created by Thijs Reeringh on 4/20/2016.
+ * The dao for the Members table.
  */
 @Transactional
 @Repository
@@ -21,11 +21,11 @@ public class MemberDaoImpl implements MemberDao {
     private SessionFactory sessionFactory;
 
     @Override
+    @SuppressWarnings (value="unchecked")
     public List<Member> getMembers() {
         Session session = sessionFactory.getCurrentSession();
         Criteria criteria = session.createCriteria(Member.class);
-        List<Member> members = (List<Member>) criteria.list();
-        return members;
+        return (List<Member>) criteria.list();
     }
 
     @Override
@@ -36,7 +36,7 @@ public class MemberDaoImpl implements MemberDao {
 
     @Override
     public boolean emailExist(String email) {
-        if (email == null) throw new NullPointerException();
+        if (email == null) throw new NullPointerException("email can not be null");
 
         Session session = sessionFactory.getCurrentSession();
         Criteria criteria = session.createCriteria(Member.class);

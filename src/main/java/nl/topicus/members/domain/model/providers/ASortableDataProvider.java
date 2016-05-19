@@ -1,6 +1,5 @@
 package nl.topicus.members.domain.model.providers;
 
-import nl.topicus.members.domain.model.MembersGroup;
 import org.apache.wicket.extensions.markup.html.repeater.util.SortableDataProvider;
 import org.apache.wicket.model.AbstractReadOnlyModel;
 import org.apache.wicket.model.IModel;
