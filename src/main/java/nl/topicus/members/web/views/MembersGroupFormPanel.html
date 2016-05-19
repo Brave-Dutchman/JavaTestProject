@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:wicket="http://www.w3.org/1999/xhtml">
+<body>
+<wicket:panel>
+    <h2>MembersGroup</h2>
+    <div wicket:id="feedback"></div>
+    <form wicket:id="userForm">
+        <p>
+            <label>Group Name</label>: <input wicket:id="name" type="text" size="20"/>
+        </p>
+        <p>
+            <label>Group Founded</label>: <input wicket:id="founded" type="text" size="20"/>
+        </p>
+
+        <p>
+            <label>Member</label>: <select wicket:id="selectMember"></select>
+        </p>
+
+        <input wicket:id="submit" type="submit" value="Register MemberGroup" />
+    </form>
+</wicket:panel>
+</body>
+</html>
