@@ -43,7 +43,7 @@ public class AppConfig {
         driver.setDriverClassName("org.postgresql.Driver");
         driver.setUrl("jdbc:postgresql://localhost/test");
         driver.setUsername("postgres");
-        driver.setPassword("SRS99s5amsr");
+        driver.setPassword("@Password1");
 
         return driver;
     }
@@ -52,7 +52,7 @@ public class AppConfig {
     public Properties HibernateProperties() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQLDialect");
-        properties.setProperty("hibernate.hbm2ddl.auto", "save"); //TODO verwijderen in productie
+        properties.setProperty("hibernate.hbm2ddl.auto", "save"); //TODO remove in production
         properties.setProperty("hibernate.show_sql", "true");
 
         return properties;
