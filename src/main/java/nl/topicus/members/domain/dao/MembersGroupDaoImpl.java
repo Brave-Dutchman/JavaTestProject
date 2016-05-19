@@ -36,7 +36,7 @@ public class MembersGroupDaoImpl implements MembersGroupDao {
         Criteria criteria = session.createCriteria(MembersGroup.class);
         criteria.add(Restrictions.eq("email",member.getEmail()));
 
-        return false;
+        return criteria.uniqueResult() != null;
     }
 
     @Override

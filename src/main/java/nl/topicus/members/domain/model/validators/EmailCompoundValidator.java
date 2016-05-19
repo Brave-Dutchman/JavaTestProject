@@ -10,9 +10,9 @@ public class EmailCompoundValidator extends CompoundValidator<String>
 {
     private EmailUniqueValidator uniqueValidator;
 
-    public EmailCompoundValidator(MemberDao dao)
+    public EmailCompoundValidator()
     {
-        uniqueValidator = new EmailUniqueValidator(dao);
+        uniqueValidator = new EmailUniqueValidator();
 
         add(new EmailStringValidator());
         add(uniqueValidator);
@@ -20,6 +20,6 @@ public class EmailCompoundValidator extends CompoundValidator<String>
 
     public void setUpdateMode(boolean updateMode)
     {
-        uniqueValidator.OnUpdate(updateMode);
+        uniqueValidator.SetUpdateMode(updateMode);
     }
 }

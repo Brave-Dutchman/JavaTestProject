@@ -27,9 +27,6 @@ public class RegisterMemberPage extends WebPage {
     @SpringBean
     private MemberDao dao;
 
-    @SpringBean
-    private MembersGroupDao membersGroupDao;
-
     private final MemberFormPanel frmPanel;
     private final MembersGroupFormPanel groupFrmPanel;
 
@@ -61,11 +58,11 @@ public class RegisterMemberPage extends WebPage {
         };
         add(groupFrmPanel);
 
-        memberDataTable = new DefaultDataTable<Member>("table", createMemberColumns(), new MemberProvider(dao), 8);
+        memberDataTable = new DefaultDataTable<Member>("table", createMemberColumns(), new MemberProvider(), 8);
         memberDataTable.setOutputMarkupId(true);
         add(memberDataTable);
 
-        membersGroupsDataTable = new DefaultDataTable<MembersGroup>("membersGroupTable", createMemberGroupColumns(), new MembersGroupProvider(membersGroupDao),8);
+        membersGroupsDataTable = new DefaultDataTable<MembersGroup>("membersGroupTable", createMemberGroupColumns(), new MembersGroupProvider(),8);
         membersGroupsDataTable.setOutputMarkupId(true);
         add(membersGroupsDataTable);
     }

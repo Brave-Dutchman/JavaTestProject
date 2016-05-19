@@ -12,10 +12,11 @@ public class WicketApplication extends WebApplication {
     public WicketApplication() {}
 
 	@Override
-	protected void init() {
+	protected void init()
+	{
 		super.init();
 		addComponentInstantiationListener(new SpringComponentInjector(this));
-    }
+    	}
 
 	/**
 	 * @see org.apache.wicket.Application#getHomePage()

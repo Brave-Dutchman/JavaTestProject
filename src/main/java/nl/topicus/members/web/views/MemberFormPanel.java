@@ -4,6 +4,7 @@ import nl.topicus.members.domain.dao.MemberDao;
 import nl.topicus.members.domain.model.validators.EmailCompoundValidator;
 import nl.topicus.members.domain.model.Member;
 import org.apache.wicket.ajax.AjaxRequestTarget;
+import org.apache.wicket.ajax.markup.html.AjaxLink;
 import org.apache.wicket.ajax.markup.html.form.AjaxSubmitLink;
 import org.apache.wicket.extensions.markup.html.form.DateTextField;
 import org.apache.wicket.markup.html.form.Form;
@@ -49,7 +50,7 @@ public abstract class MemberFormPanel extends Panel {
         tDate.setRequired(true);
         tEmail.setRequired(true);
 
-        validator = new EmailCompoundValidator(dao);
+        validator = new EmailCompoundValidator();
 
         tEmail.add(validator);
 
@@ -62,12 +63,13 @@ public abstract class MemberFormPanel extends Panel {
 
                 dao.save(submitted);
 
-                if (editMode) {
+                if (editMode)
+                {
                     validator.setUpdateMode(false);
                     tEmail.setEnabled(true);
+                    editMode = false;
                 }
 
-                editMode = false;
                 memberModel.setObject(new Member());
 
                 target.addComponent(form);
@@ -84,12 +86,13 @@ public abstract class MemberFormPanel extends Panel {
 
         form.add(submit);
 
-        form.add(new AjaxSubmitLink("reset") {
+        form.add(new AjaxLink("reset") {
             @Override
-            protected void onSubmit(AjaxRequestTarget target, Form<?> form) {
+            public void onClick(AjaxRequestTarget target) {
                 memberModel.setObject(new Member());
                 tEmail.setEnabled(true);
                 editMode = false;
+                validator.setUpdateMode(false);
 
                 target.addComponent(form);
                 target.addComponent(feedback);
