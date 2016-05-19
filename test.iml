@@ -19,6 +19,8 @@
       <configuration>
         <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/src/main/java/nl/topicus/members/domain/AppConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/nl/topicus/members/spring/AppConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/nl/topicus/members/spring/AppConfig.java</file>
         </fileset>
       </configuration>
     </facet>

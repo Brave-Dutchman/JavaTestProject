@@ -17,8 +17,7 @@ import org.apache.wicket.spring.injection.annot.SpringBean;
 /**
  * Created by Thijs Reeringh on 4/21/2016.
  */
-public abstract class MemberFormPanel extends Panel
-{
+public abstract class MemberFormPanel extends Panel {
     private Form<Member> form;
 
     @SpringBean
@@ -27,6 +26,7 @@ public abstract class MemberFormPanel extends Panel
     private IModel<Member> memberModel;
     private boolean editMode;
 
+    private final FeedbackPanel feedback;
     private EmailCompoundValidator validator;
     private final TextField<String> tEmail;
 
@@ -36,7 +36,7 @@ public abstract class MemberFormPanel extends Panel
         this.memberModel = fMemberModel;
         this.editMode = false;
 
-        final FeedbackPanel feedback = new FeedbackPanel("feedback");
+        feedback = new FeedbackPanel("feedback");
         feedback.setOutputMarkupId(true);
 
         final TextField<String> tName = new TextField<String>("name");
@@ -62,8 +62,7 @@ public abstract class MemberFormPanel extends Panel
 
                 dao.save(submitted);
 
-                if (editMode)
-                {
+                if (editMode) {
                     validator.setUpdateMode(false);
                     tEmail.setEnabled(true);
                 }
@@ -78,8 +77,7 @@ public abstract class MemberFormPanel extends Panel
             }
 
             @Override
-            protected void onError(AjaxRequestTarget target, Form<?> form)
-            {
+            protected void onError(AjaxRequestTarget target, Form<?> form) {
                 target.addComponent(feedback);
             }
         };
@@ -107,10 +105,11 @@ public abstract class MemberFormPanel extends Panel
         add(form);
     }
 
-    public void setMemberForUpdate(Member member, AjaxRequestTarget target)
-    {
+    public void setMemberForUpdate(Member member, AjaxRequestTarget target) {
         memberModel.setObject(member);
+
         target.addComponent(form);
+        target.addComponent(feedback);
 
         tEmail.setEnabled(false);
 

@@ -9,13 +9,11 @@ import nl.topicus.members.web.views.RegisterMemberPage;
  *
  * @see test.Start#main(String[])
  */
-public class WicketApplication extends WebApplication
-{
+public class WicketApplication extends WebApplication {
     public WicketApplication() {}
 
 	@Override
-	protected void init()
-	{
+	protected void init() {
 		super.init();
 		addComponentInstantiationListener(new SpringComponentInjector(this));
     }
@@ -23,8 +21,7 @@ public class WicketApplication extends WebApplication
 	/**
 	 * @see org.apache.wicket.Application#getHomePage()
 	 */
-	public Class<RegisterMemberPage> getHomePage()
-	{
+	public Class<RegisterMemberPage> getHomePage() {
 		return RegisterMemberPage.class;
 	}
 }

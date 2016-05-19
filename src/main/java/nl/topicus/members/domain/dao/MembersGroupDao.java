@@ -9,8 +9,7 @@ import java.util.Set;
 /**
  * Created by Thijs Reeringh on 5/10/2016.
  */
-public interface MembersGroupDao
-{
+public interface MembersGroupDao {
     List<MembersGroup> get();
 
     boolean isMember(Member member);

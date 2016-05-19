@@ -23,8 +23,7 @@ import java.util.Set;
 /**
  * Created by Thijs Reeringh on 5/10/2016.
  */
-public abstract class MembersGroupFormPanel extends Panel
-{
+public abstract class MembersGroupFormPanel extends Panel {
     private IModel<MembersGroup> groupModel;
 
     @SpringBean
@@ -36,8 +35,7 @@ public abstract class MembersGroupFormPanel extends Panel
 
     protected MembersGroup group;
 
-    public MembersGroupFormPanel(String id, final IModel<MembersGroup> membersGroupModel)
-    {
+    public MembersGroupFormPanel(String id, final IModel<MembersGroup> membersGroupModel) {
         super(id, membersGroupModel);
         groupModel = membersGroupModel;
 
@@ -67,8 +65,7 @@ public abstract class MembersGroupFormPanel extends Panel
 
         form.add(new AjaxSubmitLink("submit") {
             @Override
-            protected void onSubmit(AjaxRequestTarget target, Form<?> form)
-            {
+            protected void onSubmit(AjaxRequestTarget target, Form<?> form) {
                 MembersGroup submitted = groupModel.getObject();
 
                 Set<Member> members = submitted.getMembers();
@@ -85,8 +82,7 @@ public abstract class MembersGroupFormPanel extends Panel
             }
 
             @Override
-            protected void onError(AjaxRequestTarget target, Form<?> form)
-            {
+            protected void onError(AjaxRequestTarget target, Form<?> form) {
                 target.addComponent(feedback);
             }
         });
@@ -99,8 +95,7 @@ public abstract class MembersGroupFormPanel extends Panel
         add(form);
     }
 
-    public void updateDropdown(AjaxRequestTarget target)
-    {
+    public void updateDropdown(AjaxRequestTarget target) {
         target.addComponent(dropDown);
     }
 

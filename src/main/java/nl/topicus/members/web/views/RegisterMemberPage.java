@@ -21,8 +21,7 @@ import java.util.*;
 /**
  * Homepage
  */
-public class RegisterMemberPage extends WebPage
-{
+public class RegisterMemberPage extends WebPage {
 	private static final long serialVersionUID = 1L;
 
     @SpringBean
@@ -37,13 +36,11 @@ public class RegisterMemberPage extends WebPage
     private final DataTable<Member> memberDataTable;
     private final DataTable<MembersGroup> membersGroupsDataTable;
 
-    public RegisterMemberPage()
-    {
+    public RegisterMemberPage() {
         frmPanel = new MemberFormPanel("registerMember", new Model<Member>(new Member())) {
 
             @Override
-            protected void onSubmit(AjaxRequestTarget target)
-            {
+            protected void onSubmit(AjaxRequestTarget target) {
                 target.addComponent(memberDataTable);
                 groupFrmPanel.updateDropdown(target);
             }

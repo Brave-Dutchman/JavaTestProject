@@ -8,21 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * Created by Thijs Reeringh on 4/26/2016.
  */
-public class MemberDaoTest extends TestCase
-{
+public class MemberDaoTest extends TestCase {
     @Autowired
     private MemberDao memberDao;
 
 
     @Override
-    public void setUp()
-    {
-
-    }
+    public void setUp() {}
 
     @Test
-    public void testRenderMyPage()
-    {
+    public void testRenderMyPage() {
         memberDao.getMembers();
     }
 }

@@ -8,10 +8,8 @@ import org.apache.wicket.model.IModel;
 /**
  * Created by Thijs Reeringh on 4/21/2016.
  */
-public abstract class ActionPanel<T> extends Panel
-{
-    public ActionPanel(String id, final IModel<T> model)
-    {
+public abstract class ActionPanel<T> extends Panel {
+    public ActionPanel(String id, final IModel<T> model) {
         super(id, model);
 
         add(new AjaxLink("select") {

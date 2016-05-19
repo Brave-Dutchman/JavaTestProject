@@ -10,8 +10,7 @@ import java.util.Set;
  * Created by Thijs Reeringh on 5/10/2016.
  */
 @Entity
-public class MembersGroup implements Serializable
-{
+public class MembersGroup implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
@@ -29,8 +28,7 @@ public class MembersGroup implements Serializable
         members = new HashSet<Member>();
     }
 
-    public MembersGroup(String name, Date founded)
-    {
+    public MembersGroup(String name, Date founded) {
         this();
 
         this.name = name;

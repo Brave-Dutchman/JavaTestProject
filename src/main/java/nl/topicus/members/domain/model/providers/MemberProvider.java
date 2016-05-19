@@ -7,19 +7,16 @@ import org.apache.wicket.model.IModel;
 
 import java.util.*;
 
-public class MemberProvider extends ASortableDataProvider<Member>
-{
+public class MemberProvider extends ASortableDataProvider<Member> {
     private MemberDao dao;
 
-    public MemberProvider(MemberDao dao)
-    {
+    public MemberProvider(MemberDao dao) {
         setSort("name", true);
         this.dao = dao;
     }
 
     @Override
-    public Iterator<Member> iterator(final int first, final int count)
-    {
+    public Iterator<Member> iterator(final int first, final int count) {
         List<Member> newList = new ArrayList<Member>(dao.getMembers());
 
         Collections.sort(newList, comparator);
@@ -28,8 +25,7 @@ public class MemberProvider extends ASortableDataProvider<Member>
     }
 
     @Override
-    public int size()
-    {
+    public int size() {
         return dao.getMembers().size();
     }
 }

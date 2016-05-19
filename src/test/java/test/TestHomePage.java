@@ -9,19 +9,16 @@ import org.junit.Test;
 /**
  * Simple test using the WicketTester
  */
-public class TestHomePage extends TestCase
-{
+public class TestHomePage extends TestCase {
 	private WicketTester tester;
 
 	@Override
-	public void setUp()
-	{
+	public void setUp() {
 		tester = new WicketTester(new WicketApplication());
 	}
 
 	@Test
-	public void testRenderMyPage()
-	{
+	public void testRenderMyPage() {
 		//start and render the test page
 		tester.startPage(RegisterMemberPage.class);
 

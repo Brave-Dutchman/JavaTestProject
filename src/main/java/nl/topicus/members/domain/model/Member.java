@@ -8,8 +8,7 @@ import java.util.Date;
  * Created by Thijs Reeringh on 4/14/2016.
  */
 @Entity
-public class Member implements Serializable
-{
+public class Member implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
