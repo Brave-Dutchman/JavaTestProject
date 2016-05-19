@@ -12,13 +12,13 @@ import java.util.Comparator;
  * Created by Thijs Reeringh on 5/10/2016.
  */
 public abstract class ASortableDataProvider<T> extends SortableDataProvider {
-    protected SortableDataProviderComparator<T> comparator;
+    protected SortableDataProviderComparator comparator;
 
     public ASortableDataProvider() {
-        comparator = new SortableDataProviderComparator<T>();
+        comparator = new SortableDataProviderComparator();
     }
 
-    class SortableDataProviderComparator<T> implements Comparator<T>, Serializable {
+    class SortableDataProviderComparator implements Comparator<T>, Serializable {
         public int compare(final T o1, final T o2) {
             PropertyModel<Comparable> model1 = new PropertyModel<Comparable>(o1, getSort().getProperty());
             PropertyModel<Comparable> model2 = new PropertyModel<Comparable>(o2, getSort().getProperty());

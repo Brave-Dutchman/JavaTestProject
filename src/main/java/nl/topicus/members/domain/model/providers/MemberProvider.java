@@ -2,8 +2,6 @@ package nl.topicus.members.domain.model.providers;
 
 import nl.topicus.members.domain.dao.MemberDao;
 import nl.topicus.members.domain.model.Member;
-import org.apache.wicket.model.AbstractReadOnlyModel;
-import org.apache.wicket.model.IModel;
 
 import java.util.*;
 
@@ -14,6 +12,7 @@ public class MemberProvider extends ASortableDataProvider<Member> {
         setSort("name", true);
         this.dao = dao;
     }
+
 
     @Override
     public Iterator<Member> iterator(final int first, final int count) {
